@@ -7,8 +7,19 @@ use App\Models\Department;
 use App\Models\User;
 use Livewire\WithPagination;
 
+
 class AdminDepartment extends Component
 {
+
+
+    public function deleteDept($id)
+    {
+        $dpt = Department::find($id);
+        $dpt->delete();
+        $this->dispatchBrowserEvent('success-reload');
+    }
+
+
     public function render()
     {
         // $depts = Department::join('users', 'users.id', '=', 'departments.user_id' )

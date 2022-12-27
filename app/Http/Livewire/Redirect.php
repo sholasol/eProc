@@ -33,6 +33,10 @@ class Redirect extends Component
         {
             return redirect()->route('h-r.dashboard');
         }
+        elseif(Auth::user()->utype ==='TRN')
+        {
+            return redirect()->route('transport.dashboard');
+        }
     }
 
 

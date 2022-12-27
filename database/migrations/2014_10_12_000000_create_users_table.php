@@ -21,8 +21,15 @@ class CreateUsersTable extends Migration
             $table->string('utype')->default('USR')->comment('USR is for users,  ADM for admins');
             $table->string('phone')->nullable();
             $table->string('company')->nullable();
+            $table->string('emptype')->nullable();
+            $table->string('salary')->nullable();
+            $table->string('emp_id')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('qualification')->nullable();
+            $table->string('marital')->nullable();
             $table->string('cemail')->nullable();
             $table->string('cphone')->nullable();
+            $table->string('dob')->nullable();
             $table->bigInteger('dept_head')->nullable();
             $table->string('department')->nullable();
             $table->string('address')->nullable();

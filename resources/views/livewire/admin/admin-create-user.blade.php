@@ -32,7 +32,7 @@
                              </div>
                            </div>
                            <div class="form-group">
-                              <label>User Department:</label>
+                              <label>User Role:</label>
                               <select class="form-control" id="selectuserrole" wire:model="role">
                                 <option value ="">Select Role</option>
                                 <option value ="ADM">Admin User</option>
@@ -41,6 +41,7 @@
                                 <option value ="HRM">Head Human Resource</option>
                                 <option value ="FIN">Head Finance Dept</option>
                                 <option value ="PROC">Head Procurement</option>
+                                <option value ="TRN">Head Transportation</option>
                                 <option value ="USR">System Users</option>
                               </select>
                               @error('role')<p style="color: crimson;">{{ $message }}</p> @enderror
@@ -80,11 +81,79 @@
                                     <select class="form-control" wire:model="department">
                                         <option value="">Select Department</option>
                                         @foreach ($depts as $dept)
-                                            <option>{{ $dept->name }}</option>
+                                        <option value="{{ $dept->id }}">{{ $dept->name }}</option>
                                         @endforeach
                                     </select>
                                     @error('department')<p style="color: crimson;">{{ $message }}</p> @enderror
                                  </div>
+                                <div class="form-group col-md-6">
+                                    <label for="lname">Employee Type</label>
+                                    <select class="form-control" wire:model="emptype">
+                                        <option value="">Select Type</option>
+                                        <option value="Advisor">Advisor</option>
+                                        <option value="Contract">Contract Staff</option>
+                                        {{-- <option value="Casual">Casual Staff</option> --}}
+                                    </select>
+                                    @error('emptype')<p style="color: crimson;">{{ $message }}</p> @enderror
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Marital Status:</label>
+                                    <select class="form-control" id="" wire:model="marital">
+                                        <option selected="">Single</option>
+                                        <option>Married</option>
+                                        <option>Widowed</option>
+                                        <option>Divorced</option>
+                                        <option>Separated</option>
+                                    </select>
+                                    @error('marital')<p style="color: crimson;">{{ $message }}</p> @enderror
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="d-block">Gender:</label>
+                                    <div class="custom-control custom-radio custom-control-inline" wire:click="$set('gender', 'Male')">
+                                        <input type="radio" id="customRadio6" name="customRadio1" class="custom-control-input" />
+                                        <label class="custom-control-label" for="customRadio6">Male</label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline" wire:click="$set('gender', 'Female')">
+                                        <input type="radio" id="customRadio7" name="customRadio1" class="custom-control-input" />
+                                        <label class="custom-control-label" for="customRadio7">Female</label>
+                                    </div>
+                                    @error('gender')<p style="color: crimson;">{{ $message }}</p> @enderror
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="qualification">Qualification:</label>
+                                    <input type="text" class="form-control" id="qualification" placeholder="Enter qualification..." wire:model="qualification">
+                                    @error('qualification')<p style="color: crimson;">{{ $message }}</p> @enderror
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="lname">Salary Grade</label>
+                                    <select class="form-control" wire:model="salary">
+                                        <option value="">Select Department</option>
+                                        @foreach ($salaryTemp as $sal)
+                                        <option value="{{ $sal->id }}">{{ $sal->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('salary')<p style="color: crimson;">{{ $message }}</p> @enderror
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="dob">Date Of Birth:</label>
+                                    <input class="form-control" type="date" id="dob" wire:model="dob" />
+                                    @error('dob')<p style="color: crimson;">{{ $message }}</p> @enderror
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="address">Address:</label>
+                                    <input type="text" class="form-control" id="address" placeholder="Enter Address" wire:model="address">
+                                    @error('address')<p style="color: crimson;">{{ $message }}</p> @enderror
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="city">State of Origin:</label>
+                                    <input class="form-control" type="text" placeholder="Enter state of origin..." id="city" wire:model="city" />
+                                    @error('city')<p style="color: crimson;">{{ $message }}</p> @enderror
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="country">Country:</label>
+                                    <input class="form-control" type="text" placeholder="Enter country of birth..." id="country" wire:model="country" />
+                                    @error('country')<p style="color: crimson;">{{ $message }}</p> @enderror
+                                </div>
                               </div>
                               <hr>
                               <h5 class="mb-3">User Authentication</h5>

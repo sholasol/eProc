@@ -5,7 +5,7 @@
                 <div class="iq-card">
                       <div class="iq-card-header d-flex justify-content-between">
                          <div class="iq-header-title">
-                            <h4 class="card-title">Departmets</h4>
+                            <h4 class="card-title">Departments</h4>
                          </div>
                       </div>
                       <div class="iq-card-body">
@@ -16,7 +16,9 @@
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Created</th>
-                                    <th width="5%"></th>
+                                    @if (Auth::user()->utype==="ADM" || Auth::user()->utype==="HRM")
+                                        <th width="5%"></th>
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
@@ -25,30 +27,28 @@
                                     <td>{{ $key+1 }}</td>
                                     <td>{{ $dept->name }}</td>
                                     <td>{{ $dept->created_at->diffForHumans() }}</td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                                           <div class="btn-group" role="group">
-                                              <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                              Action
-                                              </button>
-                                              <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                                 <a class="dropdown-item" href="{{ route('admin.admin-approvallimit', ['dept_id'=>$dept->id])  }}">Approval Limit</a>
-                                                 <a class="dropdown-item" href="#">Delete</a>
-                                              </div>
-                                           </div>
-                                        </div>
-                                      </td>
+                                    @if (Auth::user()->utype==="ADM" || Auth::user()->utype==="HRM")
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                                                <div class="btn-group" role="group">
+                                                    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                        Action
+                                                    </button>
+                                                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('system.system-approvallimit', ['dept_id'=>$dept->id])  }}">Edit Department</a>
+                                                        <a class="dropdown-item" href="#" onclick="confirm('Are you sure, you want to delete this department?') ||event.stopImmediatePropagation()" wire:click.prevent="deleteDept({{ $dept->id }})">
+                                                            Delete
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    @endif
                                 </tr>
                                 @endforeach
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>Created</th>
-                                    <th></th>
-                                </tr>
-                            </tfoot>
                         </table>
                          </div>
                       </div>

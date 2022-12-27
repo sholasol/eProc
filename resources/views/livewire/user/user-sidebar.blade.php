@@ -57,27 +57,25 @@
                    <li><a href="{{ route('user.create-email') }}"><i class="ri-edit-line"></i>Email Compose</a></li>
                 </ul>
              </li>
-             <li class="iq-menu-title"><i class="ri-subtract-line"></i><span>Procurment Process</span></li>
+             <li class="iq-menu-title"><i class="ri-subtract-line"></i><span>Procurement Process</span></li>
              <li>
                <a href="#request" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-pages-line"></i><span>Request</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                <ul id="request" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                  <li><a href="{{ route('user.userrequest') }}"><i class="ri-pages-line"></i>My Requests</a></li>
-                  <li><a href="{{ route('user.createrequest') }}"><i class="ri-pages-line"></i>Create Purchase Request</a></li>
-               </ul>
+                <li><a href="{{ route('request.request') }}"><i class="ri-pages-line"></i>Purchase Requests</a></li>
+                <li><a href="{{ route('request.request-travelexpense') }}"><i class="ri-pages-line"></i>Travel Expense Requests</a>
+                </li>
+                {{-- <li><a href="{{ route('request.request-carrequest') }}"><i class="ri-pages-line"></i>Travel Expense
+                        Requests</a></li> --}}
+                @if (Auth::user()->department == "6")
+                    <li><a href="{{ route('request.servicerequest') }}"><i class="ri-pages-line"></i>Car Service Requests</a></li>
+                @else
+                    <li><a href="{{ route('request.request-carrequest') }}"><i class="ri-pages-line"></i>Pool Car Requests</a></li>
+                @endif
+                <li><a href="{{ route('request.createrequest') }}"><i class="ri-pages-line"></i>Create Request</a></li>
+            </ul>
             </li>
-             {{-- <li>
-               <a href="#ecommerce" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-shopping-cart-line"></i><span>Procure</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-               <ul id="ecommerce" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                  <li><a href="{{ route('admin.user-request') }}"><i class="ri-pages-line"></i>Purchase Request</a></li>
-                  <li><a href="{{ route('admin.create-request') }}"><i class="ri-pages-line"></i>Create Purchase Request</a></li>
-                  <li><a href="{{ route('admin.admin-rfq') }}"><i class="ri-file-list-line"></i>RFQ</a></li>
-                  <li><a href="e-commerce-checkout.html"><i class="ri-shopping-cart-2-line"></i>Purchase</a></li>
-                  <li><a href="e-commerce-wishlist.html"><i class="ri-heart-line"></i>Invoice</a></li>
-                  <li><a href="e-commerce-wishlist.html"><i class="ri-heart-line"></i>Quotations</a></li>
-               </ul>
-            </li> --}}
             <li class="">
-               <a href="{{ route('user.userreceived')}}" class="iq-waves-effect"><i class="las la-truck"></i><span>Received </span></a>
+               <a href="{{ route('request.received')}}" class="iq-waves-effect"><i class="las la-truck"></i><span>Received </span></a>
             </li>
           </ul>
        </nav>
@@ -276,7 +274,10 @@
          <ul class="navbar-list">
             <li>
                <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
-                  <img src="{{ asset('asset/image/users')}}/{{ Auth::user()->profile_photo_path }}" class="img-fluid rounded mr-3" alt="user">
+                  <img class="rounded img-fluid mr-3" src="
+                    <?php if(!empty(Auth::user()->profile_photo_path) && file_exists('asset/image/users/'.Auth::user()->profile_photo_path)){
+                            echo asset('asset/image/users').'/'.Auth::user()->profile_photo_path;
+                        } else{ echo asset('asset/image/users/dummy.png');} ?>" alt="profile">
                   <div class="caption">
                      <h6 class="mb-0 line-height">{{ Auth::user()->fname }}</h6>
                      <span class="font-size-12">Online</span>

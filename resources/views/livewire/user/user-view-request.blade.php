@@ -10,56 +10,89 @@
                       </div>
                    </div>
                    <div class="iq-card-body">
-                            @if ($req->dept_approval =="")
-                                <a class="btn btn-danger">
-                                    <i class="fa fa-exclamation text-white"></i><span class="text-white">Awaiting Dept. Approval</span>
-                                </a>
-                            @else
-                            <a class="btn btn-success">
-                                <i class="fa fa-check text-white"></i><span class="text-white">Passed Dept. Approval</span>
-                            </a>
-                            @endif
+                    @if ($req->dept_approval =="Approved")
+                    <a class="btn btn-success">
+                        <i class="fa fa-check text-white"></i><span class="text-white">Passed Dept. Approval</span>
+                    </a>
+                    @elseif ($req->dept_approval =="Revised")
+                    <a class="btn btn-warning">
+                        <i class="fa fa-exclamation text-white"></i><span class="text-white">Revise Request</span>
+                    </a>
+                    @elseif ($req->dept_approval =="Declined")
+                    <a class="btn btn-danger">
+                        <i class="fa fa-exclamation text-white"></i><span class="text-white">Request Declined</span>
+                    </a>
+                    @else
+                    <a class="btn btn-danger">
+                        <i class="fa fa-exclamation text-white"></i><span class="text-white">Awaiting Dept. Approval</span>
+                    </a>
+                    @endif
 
-                            @if ($req->proc_approval =="")
-                                <a class="btn btn-danger">
-                                    <i class="fa fa-exclamation text-white"></i><span class="text-white">Awaiting Proc. Approval</span>
-                                </a>
-                            @else
-                            <a class="btn btn-success">
-                                <i class="fa fa-check text-white"></i><span class="text-white">Passed Proc. Approval</span>
-                            </a>
-                            @endif
+                    @if ($req->proc_approval =="Approved")
+                    <a class="btn btn-success">
+                        <i class="fa fa-check text-white"></i><span class="text-white">Passed Proc. Approval</span>
+                    </a>
+                    @elseif ($req->proc_approval =="Revised")
+                    <a class="btn btn-warning">
+                        <i class="fa fa-exclamation text-white"></i><span class="text-white">Revise Request</span>
+                    </a>
+                    @elseif ($req->proc_approval =="Declined")
+                    <a class="btn btn-danger">
+                        <i class="fa fa-exclamation text-white"></i><span class="text-white">Request Declined</span>
+                    </a>
+                    @else
+                    <a class="btn btn-danger">
+                        <i class="fa fa-exclamation text-white"></i><span class="text-white">Awaiting Proc. Approval</span>
+                    </a>
+                    @endif
 
-                            @if ($req->fin_approval =="")
-                                <a class="btn btn-danger">
-                                    <i class="fa fa-exclamation text-white"></i><span class="text-white">Awaiting Finn. Approval</span>
-                                </a>
-                            @else
-                            <a class="btn btn-success">
-                                <i class="fa fa-check text-white"></i><span class="text-white">Passed Finn. Approval</span>
-                            </a>
-                            @endif
+                    @if ($req->fin_approval =="Approved")
+                    <a class="btn btn-success">
+                        <i class="fa fa-check text-white"></i><span class="text-white">Passed Finn. Approval</span>
+                    </a>
+                    @elseif ($req->fin_approval =="Revised")
+                    <a class="btn btn-warning">
+                        <i class="fa fa-exclamation text-white"></i><span class="text-white">Revise Request</span>
+                    </a>
+                    @elseif ($req->fin_approval =="Declined")
+                    <a class="btn btn-danger">
+                        <i class="fa fa-exclamation text-white"></i><span class="text-white">Request Declined</span>
+                    </a>
+                    @else
+                    <a class="btn btn-danger">
+                        <i class="fa fa-exclamation text-white"></i><span class="text-white">Awaiting Finn. Approval</span>
+                    </a>
+                    @endif
 
-                            @if ($req->cfo_approval =="")
-                                <a class="btn btn-danger">
-                                    <i class="fa fa-exclamation text-white"></i><span class="text-white">Awaiting CFO Approval</span>
-                                </a>
-                            @else
-                            <a class="btn btn-success">
-                                <i class="fa fa-check text-white"></i><span class="text-white">Passed CFO Approval</span>
-                            </a>
-                            @endif
+                    @if ($req->cfo_approval =="Approved")
+                    <a class="btn btn-success">
+                        <i class="fa fa-check text-white"></i><span class="text-white">Passed CFO. Approval</span>
+                    </a>
+                    @elseif ($req->cfo_approval =="Revised")
+                    <a class="btn btn-warning">
+                        <i class="fa fa-exclamation text-white"></i><span class="text-white">Revise Request</span>
+                    </a>
+                    @elseif ($req->cfo_approval =="Declined")
+                    <a class="btn btn-danger">
+                        <i class="fa fa-exclamation text-white"></i><span class="text-white">Request Declined</span>
+                    </a>
+                    @else
+                    <a class="btn btn-danger">
+                        <i class="fa fa-exclamation text-white"></i><span class="text-white">Awaiting CFO. Approval</span>
+                    </a>
+                    @endif
 
-                            @if ($req->final_approval =="")
-                                <a class="btn btn-danger">
-                                    <i class="fa fa-exclamation text-white"></i><span class="text-white">Awaiting Delivery</span>
-                                </a>
-                            @else
-                            <a class="btn btn-success">
-                                <i class="fa fa-check text-white"></i><span class="text-white">Request Delivered</span>
-                            </a>
-                            @endif
-                   </div>
+                    @if ($req->final_approval =="")
+                    <a class="btn btn-danger">
+                        <i class="fa fa-exclamation text-white"></i><span class="text-white">Awaiting
+                            Delivery</span>
+                    </a>
+                    @else
+                    <a class="btn btn-success">
+                        <i class="fa fa-check text-white"></i><span class="text-white">Request Delivered</span>
+                    </a>
+                    @endif
+                </div>
                 </div>
             </div>
 

@@ -7,11 +7,13 @@
        </div> --}}
        <div class="sidebar-menu-icon">
           <a href="{{ route('finance.dashboard') }}" class="iq-waves-effect" data-toggle="tooltip" data-placement="right" title="" data-original-title="Home"><i class="ri-home-2-fill"></i></a>
-          <a href="javascript:void(0);" class="iq-waves-effect" data-toggle="tooltip" data-placement="right" title="" data-original-title="Search"><i class="ri-search-fill"></i></a>
-          <a href="" class="iq-waves-effect" data-toggle="tooltip" data-placement="right" title="" data-original-title="Mail"><i class="ri-mail-open-fill"></i></a>
-          <a href="profile.html" class="iq-waves-effect" data-toggle="tooltip" data-placement="right" title="" data-original-title="Social"><i class="ri-command-fill"></i></a>
-          <a href="javascript:void(0);" class="iq-waves-effect" data-toggle="tooltip" data-placement="right" title="" data-original-title="Upload"><i class="ri-file-upload-fill"></i></a>
-          <a href="javascript:void(0);" class="iq-waves-effect" data-toggle="tooltip" data-placement="right" title="" data-original-title="Cloud"><i class="ri-cloud-fill"></i></a>
+          <a href="{{ route('system.email')}}" class="iq-waves-effect" data-toggle="tooltip" data-placement="right" title=""
+            data-original-title="Messaging"><i class="ri-mail-open-fill"></i></a>
+        <a href="{{ route('system.system-profile')}}" class="iq-waves-effect" data-toggle="tooltip" data-placement="right"
+            title="" data-original-title="Profile"><i class="ri-user-fill"></i></a>
+        <a href="{{ route('system.requestlist')}}" class="iq-waves-effect" data-toggle="tooltip" data-placement="right" title=""
+            data-original-title="Requests"><i class="ri-file-upload-fill"></i></a>
+          {{-- <a href="javascript:void(0);" class="iq-waves-effect" data-toggle="tooltip" data-placement="right" title="" data-original-title="Cloud"><i class="ri-cloud-fill"></i></a> --}}
        </div>
     </div>
     <div class="sidebar-bottom">
@@ -55,16 +57,16 @@
                   <li><a href="{{ route('admin.admin-claims') }}"><i class="ri-calculator-fill"></i>All Claims</a></li>
                </ul>
             </li>
-             <li class="{{ request()->is('admin/create-user') || request()->is('admin/admin-users') ? 'active' :' ' }}">
+             <li class="{{ request()->is('system/system-users') ? 'active' :' ' }}">
                 <a href="#user" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><i class="ri-user-line"></i><span>Staffs</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                <ul id="user" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                   <li><a href="{{ route('admin.admin-users') }}"><i class="ri-file-list-line"></i>Staffs</a></li>
+                   <li><a href="{{ route('system.system-users') }}"><i class="ri-file-list-line"></i>Staffs</a></li>
                 </ul>
              </li>
-             <li class="{{ request()->is('admin/admin-department') || request()->is('admin/create-department') ? 'active' :' ' }}">
+             <li class="{{ request()->is('system/system-department') ? 'active' :' ' }}">
                <a href="#dept" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><i class="fa fa-home"></i><span>Department</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                <ul id="dept" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                  <li><a href="{{ route('admin.admin-department') }}"><i class="ri-file-list-line"></i>Departments</a></li>
+                  <li><a href="{{ route('system.system-department') }}"><i class="ri-file-list-line"></i>Departments</a></li>
                </ul>
             </li>
 
@@ -74,23 +76,56 @@
                   <li><a href="{{ route('admin.admin-vendors') }}"><i class="ri-file-list-line"></i> Vendor Payment</a></li>
                </ul>
             </li>
-             <li class="{{ request()->is('admin/create-email') || request()->is('admin/admin-email') ? 'active' :' ' }}">
-                <a href="#mailbox" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><i class="ri-mail-line"></i><span>Email/Messaging</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+            <li class="{{ request()->is('system/create-email') || request()->is('system/email') ? 'active' :' ' }}">
+                <a href="#mailbox" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i
+                        class="ri-mail-line"></i><span>Email/Messaging</span><i
+                        class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                 <ul id="mailbox" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                   <li><a href="{{ route('admin.admin-email') }}"><i class="ri-inbox-line"></i>Inbox</a></li>
-                   <li><a href="{{ route('admin.create-email') }}"><i class="ri-edit-line"></i>Email Compose</a></li>
+                    <li><a href="{{ route('system.email') }}"><i class="ri-inbox-line"></i>Inbox</a></li>
+                    <li><a href="{{ route('system.create-email') }}"><i class="ri-edit-line"></i>Email Compose</a>
+                    </li>
                 </ul>
-             </li>
-             <li class="iq-menu-title"><i class="ri-subtract-line"></i><span>Procurment Process</span></li>
-             <li>
-               <a href="#request" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-pages-line"></i><span>Request</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-               <ul id="request" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                  <li><a href="{{ route('admin.user-request') }}"><i class="ri-pages-line"></i>Purchase Request Approval</a></li>
-                  <li><a href="{{ route('admin.create-request') }}"><i class="ri-pages-line"></i>Create Request</a></li>
-               </ul>
+            </li>
+             <li class="iq-menu-title"><i class="ri-subtract-line"></i><span>Procurement Process</span></li>
+            <li>
+                <a href="#request" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i
+                        class="ri-pages-line"></i><span>My Request(s)</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                <ul id="request" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                    <li><a href="{{ route('request.request') }}"><i class="ri-pages-line"></i>Purchase Requests</a></li>
+                    <li><a href="{{ route('request.request-travelexpense') }}"><i class="ri-pages-line"></i>Travel Expense Requests</a>
+                    </li>
+                    {{-- <li><a href="{{ route('request.request-carrequest') }}"><i class="ri-pages-line"></i>Travel Expense
+                            Requests</a></li> --}}
+                    <li><a href="{{ route('request.request-carrequest') }}"><i class="ri-pages-line"></i>Pool Car Requests</a></li>
+                    <li><a href="{{ route('request.createrequest') }}"><i class="ri-pages-line"></i>Create Request</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#approve" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i
+                        class="ri-chat-check-line"></i><span>Department Approval</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                <ul id="approve" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                    <li><a href="{{ route('system.requestlist') }}"><i class="ri-pages-line"></i>Purchase Request</a></li>
+                    <li><a href="{{ route('system.request-carrequest') }}"><i class="ri-pages-line"></i>Pool Car Request</a></li>
+                    <li><a href="{{ route('system.travelrequestlist') }}"><i class="ri-pages-line"></i>Travel Expense Request</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#ecommerce" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i
+                        class="ri-shopping-cart-line"></i><span>Operations</span><i
+                        class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                <ul id="ecommerce" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                    <li><a href="{{ route('finance.awaiting-request') }}"><i class="ri-pages-line"></i>Awaiting Purchase Requests</a></li>
+                    <li><a href="{{ route('procurement.awaiting-servicelist') }}"><i class="ri-pages-line"></i>Awaiting Service Requests</a></li>
+                    <li><a href="{{ route('finance.awaiting-travellist') }}"><i class="ri-pages-line"></i>Awaiting Travel Requests</a></li>
+                    <li><a href="{{ route('admin.admin-rfq') }}"><i class="ri-file-list-line"></i>RFQ</a></li>
+                    <li><a href="e-commerce-checkout.html"><i class="ri-shopping-cart-2-line"></i>Purchase</a></li>
+                    <li><a href="e-commerce-wishlist.html"><i class="ri-heart-line"></i>Invoice</a></li>
+                    <li><a href="e-commerce-wishlist.html"><i class="ri-heart-line"></i>Quotations</a></li>
+                </ul>
             </li>
             <li class="">
-               <a href="" class="iq-waves-effect"><i class="las la-truck"></i><span>Received </span></a>
+                <a href="{{ route('request.received')}}" class="iq-waves-effect"><i class="las la-truck"></i><span>Received
+                    </span></a>
             </li>
           </ul>
        </nav>
@@ -289,7 +324,11 @@
          <ul class="navbar-list">
             <li>
                <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
-                  <img src="{{ asset('asset/image/users')}}/{{ Auth::user()->profile_photo_path }}" class="img-fluid rounded mr-3" alt="user">
+                  <img class="rounded img-fluid mr-3" src="
+                    <?php if(!empty(Auth::user()->profile_photo_path) && file_exists('asset/image/users/'.Auth::user()->profile_photo_path)){
+                            echo asset('asset/image/users').'/'.Auth::user()->profile_photo_path;
+                        } else{ echo asset('asset/image/users/dummy.png');} ?>"
+                    alt="profile">
                   <div class="caption">
                      <h6 class="mb-0 line-height">{{ Auth::user()->fname }}</h6>
                      <span class="font-size-12">Online</span>

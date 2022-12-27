@@ -22,13 +22,13 @@ class CreateRequestsTable extends Migration
             $table->string('image')->nullable();
             $table->string('category')->nullable();
             $table->string('department')->nullable();
-            $table->bigInteger('dept_approval')->nullable();
+            $table->string('dept_approval')->nullable();
             $table->text('dept_remark')->nullable();
-            $table->bigInteger('proc_approval')->nullable();
+            $table->string('proc_approval')->nullable();
             $table->text('proc_remark')->nullable();
-            $table->bigInteger('fin_approval')->nullable();
+            $table->string('fin_approval')->nullable();
             $table->text('proc_remark')->nullable();
-            $table->bigInteger('cfo_approval')->nullable();
+            $table->string('cfo_approval')->nullable();
             $table->text('cfo_remark')->nullable();
             $table->string('final_approval')->nullable();
             $table->date('approval_date')->nullable();

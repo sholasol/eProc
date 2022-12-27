@@ -161,7 +161,7 @@
             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                <div class="iq-card-body">
                   <div class="d-flex align-items-center justify-content-between">
-                     <h6>Pending Claims</h6>
+                     <h6>Pending Comission</h6>
                      <span class="iq-icon"><i class="ri-information-fill"></i></span>
                   </div>
                   <div class="iq-customer-box d-flex align-items-center justify-content-between mt-3">
@@ -177,7 +177,7 @@
             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                <div class="iq-card-body">
                   <div class="d-flex align-items-center justify-content-between">
-                     <h6>Settled Claims</h6>
+                     <h6>Settled Comission</h6>
                      <span class="iq-icon"><i class="ri-information-fill"></i></span>
                   </div>
                   <div class="iq-customer-box d-flex align-items-center justify-content-between mt-3">
@@ -555,7 +555,7 @@
             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                <div class="iq-card-header d-flex justify-content-between">
                   <div class="iq-header-title">
-                     <h4 class="card-title">Settled Claims</h4>
+                     <h4 class="card-title">Settled Comission</h4>
                   </div>
                   <div class="iq-card-header-toolbar d-flex align-items-center">
                      <div class="dropdown">

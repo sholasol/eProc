@@ -1,26 +1,34 @@
 <!doctype html>
 <html lang="en">
    <head>
-      <!-- Required meta tags -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>eProc | Old Mutual</title>
-      <!-- Favicon -->
-      <link rel="shortcut icon" href="{{asset('asset/icon.jpg')}}" />
-      <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
-      <!-- Typography CSS -->
-      <link rel="stylesheet" href="{{ asset('css/typography.css')}}">
-      <!-- Style CSS -->
-      <link rel="stylesheet" href="{{ asset('css/style.css')}}">
-      <!-- Responsive CSS -->
-      <link rel="stylesheet" href="{{ asset('css/responsive.css')}}">
-      <!-- Full calendar -->
-      <link href='{{ asset('fullcalendar/core/main.css')}}' rel='stylesheet' />
-      <link href='{{ asset('fullcalendar/daygrid/main.css')}}' rel='stylesheet' />
-      <link href='{{ asset('fullcalendar/timegrid/main.css')}}' rel='stylesheet' />
-      <link href='{{ asset('fullcalendar/list/main.css')}}' rel='stylesheet' />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>eProc | Old Mutual</title>
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="{{asset('asset/icon.jpg')}}" />
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
+        <!-- Typography CSS -->
+        <link rel="stylesheet" href="{{ asset('css/typography.css')}}">
+        <!-- Style CSS -->
+        <link rel="stylesheet" href="{{ asset('css/style.css')}}">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="{{ asset('css/responsive.css')}}">
+        <!-- Full calendar -->
+        <link href='{{ asset(' fullcalendar/core/main.css')}}' rel='stylesheet' />
+        <link href='{{ asset(' fullcalendar/daygrid/main.css')}}' rel='stylesheet' />
+        <link href='{{ asset(' fullcalendar/timegrid/main.css')}}' rel='stylesheet' />
+        <link href='{{ asset(' fullcalendar/list/main.css')}}' rel='stylesheet' />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+{{-- Daterangepicker --}}
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+        {{-- select 2 --}}
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <!--Datatables -->
+        <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('css/buttons.dataTables.min.css')}}">
       @livewireStyles
    </head>
    <body class="two-sidebar">
@@ -30,6 +38,7 @@
 
        </div>
     </div>
+
     <!-- loader END -->
     <!-- Wrapper Start -->
     <div class="wrapper">
@@ -46,6 +55,8 @@
          @livewire('vendor.vendor-sidebar')
       @elseif (Auth::user()->utype=="HRM")
          @livewire('h-r.h-r-sidebar')
+@elseif (Auth::user()->utype=="TRN")
+    @livewire('transportation.transportation-sidebar')
       @endif
 
 
@@ -72,7 +83,8 @@
       <!-- Footer END -->
       <!-- Optional JavaScript -->
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <script src="{{ asset('js/jquery.min.js')}}"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    {{-- <script src="{{ asset('js/jquery.min.js')}}"></script> --}}
       <script src="{{ asset('js/popper.min.js')}}"></script>
       <script src="{{ asset('js/bootstrap.min.js')}}"></script>
       <!-- Appear JavaScript -->
@@ -115,6 +127,97 @@
       <script src="{{ asset('js/worldLow.js')}}"></script>
       <script src="{{ asset('js/custom.js')}}"></script>
       <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Custom Datatable -->
+    <script src="{{ asset('js/jquery-1.12.3.js')}}"></script>
+    <script src="{{ asset('js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ asset('js/dataTables.buttons.min.js')}}"></script>
+    <script src="{{ asset('js/jszip.min.js')}}"></script>
+    <script src="{{ asset('js/pdfmake.min.js')}}"></script>
+    <script src="{{ asset('js/vfs_fonts.js')}}"></script>
+    <script src="{{ asset('js/buttons.html5.min.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    {{-- DATERANGEPICKER --}}
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    {{-- select 2 --}}
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="{{ asset('js/jquery.printArea.js') }}" type="text/JavaScript"></script>
+    <script>
+        $(document).ready(function(){
+            // $(".relative a").each(function () {
+            //     console.log($(this).attr('href'));
+
+            // })
+            // $(".relative a").on("click", function (e) {
+            //     e.preventDefault();
+            //     let vt = $(this).attr('href');
+            //     let num = vt.split("=")
+            //     let fin = vt.slice(-1);
+            //     // console.log(fin)
+            //     window.location.href = "/system/system-users?page="+fin
+            // })
+        })
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#example').DataTable({
+                retrieve: true,
+                dom: 'Bfrtip',
+                buttons: [{
+                    extend: 'excel',
+                    text: 'Excel',
+                    className: 'exportExcel',
+                    filename: 'Test_Excel',
+                    exportOptions: { modifier: { page: 'all'} }
+                },
+                {
+                    extend: 'csv',
+                    text: 'CSV',
+                    className: 'exportExcel',
+                    filename: 'Test_Csv',
+                    exportOptions: { modifier: { page: 'all'} }
+                },
+                {
+                    extend: 'pdf',
+                    text: 'PDF',
+                    className: 'exportExcel',
+                    filename: 'Test_Pdf',
+                    exportOptions: { modifier: { page: 'all'} }
+                }]
+            });
+
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+                $(".select2vendors").select2()
+                setTimeout(() => {
+                    $(".select2-selection__rendered").css({
+                        "height": "45px",
+                        "background": "transparent",
+                        "border-radius": "10px"
+                    });
+                    $(".select2-selection").css({
+                        "height": "45px",
+                        "background": "transparent",
+                        "border-radius": "10px",
+                        // "padding-top": "9px"
+                    });
+                    $("select2-selection__arrow").css("padding-top", "45px")
+                }, 300);
+
+            })
+    </script>
+    <script>
+        // window.addEventListener('preloader', event => {
+        //     $("#preloading").css("display","flex")
+        //     alert('3344');
+        // })
+        // window.addEventListener('rempreloader', event => {
+        // $("#preloading").css("display","none")
+        // })
+    </script>
       <script>
         window.addEventListener('success', event => {
             Swal.fire({
@@ -131,6 +234,74 @@
         })
     </script>
     <script>
+window.addEventListener('user-createsuccess', event => {
+        Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: 'User created successfully',
+        type: 'success',
+        showConfirmButton: true,
+        timer: 2000
+        }).then(function() {
+        window.location = '{{ route('system.system-users') }}';
+        });
+        })
+        </script>
+        <script>
+            window.addEventListener('success-reload', event => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'Operation successful',
+                    type: 'success',
+                    showConfirmButton: true,
+                    timer: 2000
+                }).then(function () {
+                    window.location.reload();
+                });
+            })
+        </script>
+        <script>
+            window.addEventListener('user_stat_change', event => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'User Status Updated Successfully',
+                    type: 'success',
+                    showConfirmButton: true,
+                    timer: 2000
+                });
+            })
+        </script>
+        <script>
+            window.addEventListener('success-reload-redirect', event => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'Operation successful',
+                    type: 'success',
+                    showConfirmButton: true,
+                    timer: 2000
+                }).then(function () {
+                    window.location.href = '{{ route('payroll.history') }}';
+                });
+            })
+        </script>
+        <script>
+            window.addEventListener('payment-exists', event => {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Payment Exists',
+                    text: 'Payment for the month already exists',
+                    type: 'info',
+                    showConfirmButton: true,
+                    timer: 2000
+                }).then(function () {
+                    window.location.reload();
+                });
+            })
+        </script>
+        <script>
         window.addEventListener('user-success', event => {
             Swal.fire({
             icon: 'success',
@@ -142,6 +313,20 @@
             }).then(function() {
                 //window.location.reload();
                 window.location = '{{ route('user.dashboard') }}';
+            });
+        })
+    </script>
+    <script>
+        window.addEventListener('car-success', event => {
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: 'Operation successful',
+                type: 'success',
+                showConfirmButton: true,
+                timer: 2000
+            }).then(function() {
+                window.location.reload();
             });
         })
     </script>
@@ -177,6 +362,20 @@
       })
    </script>
    <script>
+window.addEventListener('passUpdateSuccess', event => {
+    Swal.fire({
+    icon: 'success',
+    title: 'Success',
+    text: 'Password Update Successful',
+    type: 'success',
+    showConfirmButton: true,
+    timer: 2000
+    }).then(function() {
+    window.location.reload();
+    });
+    })
+    </script>
+    <script>
       function printContent(el){
               var restorepage = document.body.innerHTML;
               var printcontent = document.getElementById(el).innerHTML;
@@ -189,8 +388,13 @@
     window.addEventListener('show-form', event => {
         $('#form').modal('show');
     });
+$('.delete-deduct').on('click', function () {
+alert('this.class')
+})
 </script>
+
       @livewireScripts
       @stack('scripts')
+@yield('scripts')
    </body>
 </html>

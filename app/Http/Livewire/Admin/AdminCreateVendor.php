@@ -88,7 +88,7 @@ class AdminCreateVendor extends Component
         $usr->save();
 
 
-        $this->dispatchBrowserEvent('success');
+        $this->dispatchBrowserEvent('success-reload');
     }
 
 

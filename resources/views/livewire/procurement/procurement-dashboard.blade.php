@@ -29,16 +29,16 @@
             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                <div class="iq-card-body">
                   <div class="bg-success p-3 rounded d-flex align-items-center justify-content-between mb-3">
-                     <h5 class="text-white">All Requests</h5>
+                     <h5 class="text-white">Purchase Requests</h5>
                      <div class="rounded-circle iq-card-icon bg-white">
                         <i class="ri-layout-line text-success"></i>
                      </div>
                    </div>
-                   <h4 class="mb-2">Total Request: 4</h4>
+                   <h4 class="mb-2">Total Request: {{$purchase}}</h4>
                    <div class="row align-items-center justify-content-between mt-3">
                       <div class="col-sm-6">
-                         <p class="mb-0">Dept:</p>
-                         <h6>5 departments</h6>
+                         <p class="mb-0">Request:</p>
+                         <h6>{{$purchase}} requests</h6>
                       </div>
                       <div class="col-sm-6">
                          <div class="iq-progress-bar">
@@ -53,16 +53,16 @@
             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                <div class="iq-card-body">
                   <div class="bg-cobalt-blue p-3 rounded d-flex align-items-center justify-content-between mb-3">
-                     <h5 class="text-white">Open Request</h5>
+                     <h5 class="text-white">Pool Car Request</h5>
                      <div class="rounded-circle iq-card-icon bg-white">
-                        <i class="fa fa-folder-o text-cobalt-blue"></i>
+                        <i class="fa fa-car text-cobalt-blue"></i>
                      </div>
                    </div>
-                   <h4 class="mb-2">Total Requests: 6</h4>
+                   <h4 class="mb-2">Total Requests: {{$total_car_request}}</h4>
                    <div class="row align-items-center justify-content-between mt-3">
                       <div class="col-sm-6">
                          <p class="mb-0">Request</p>
-                         <h6>6</h6>
+                         <h6>{{$total_car_request}} requests</h6>
                       </div>
                       <div class="col-sm-6">
                          <div class="iq-progress-bar">
@@ -76,21 +76,21 @@
          <div class="col-md-3">
             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                <div class="iq-card-body">
-                  <div class="bg-info p-3 rounded d-flex align-items-center justify-content-between mb-3">
-                     <h5 class="text-white">Purchase Order</h5>
+                  <div class="bg-danger p-3 rounded d-flex align-items-center justify-content-between mb-3">
+                     <h5 class="text-white">Car Service Requests</h5>
                      <div class="rounded-circle iq-card-icon bg-white">
-                        <i class="fa fa-shopping-cart text-info"></i>
+                        <i class="fa fa-car text-danger"></i>
                      </div>
                    </div>
-                   <h4 class="mb-2">Total Order: 6</h4>
+                   <h4 class="mb-2">Car Service: {{$total_service_request}}</h4>
                    <div class="row align-items-center justify-content-between mt-3">
                       <div class="col-sm-6">
-                         <p class="mb-0">Dept:</p>
-                         <h6>4 departments</h6>
+                         <p class="mb-0">Request:</p>
+                         <h6>{{$total_service_request}} requests</h6>
                       </div>
                       <div class="col-sm-6">
                          <div class="iq-progress-bar">
-                            <span class="bg-info" data-percent="98"></span>
+                            <span class="bg-danger" data-percent="98"></span>
                          </div>
                    </div>
                 </div>
@@ -101,16 +101,16 @@
             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                <div class="iq-card-body">
                   <div class="bg-amber p-3 rounded d-flex align-items-center justify-content-between mb-3">
-                     <h5 class="text-white">Request for Quotes</h5>
+                     <h5 class="text-white">Travel Requests</h5>
                      <div class="rounded-circle iq-card-icon bg-white">
-                        <i class="fa fa-file text-amber"></i>
+                        <i class="fa fa-plane text-amber"></i>
                      </div>
                    </div>
-                   <h4 class="mb-2">Total RFQ: 6</h4>
+                   <h4 class="mb-2">Total Request: {{$travel}}</h4>
                    <div class="row align-items-center justify-content-between mt-3">
                       <div class="col-sm-6">
-                         <p class="mb-0">Depts</p>
-                         <h6>5 Departments</h6>
+                         <p class="mb-0">Requests</p>
+                         <h6>{{$travel}} requests</h6>
                       </div>
                       <div class="col-sm-6">
                          <div class="iq-progress-bar">
@@ -125,16 +125,16 @@
             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                <div class="iq-card-body">
                   <div class="bg-pink p-3 rounded d-flex align-items-center justify-content-between mb-3">
-                     <h5 class="text-white">Approved Requests</h5>
+                     <h5 class="text-white">Total Vendors</h5>
                      <div class="rounded-circle iq-card-icon bg-white">
-                        <i class="ri-t-box-line text-pink"></i>
+                        <i class="las la-user-friends text-pink"></i>
                      </div>
                    </div>
-                   <h4 class="mb-2">Total Approved: 3</h4>
+                   <h4 class="mb-2">Vendors: {{$vendor}}</h4>
                    <div class="row align-items-center justify-content-between mt-3">
                       <div class="col-sm-6">
-                         <p class="mb-0">Depts</p>
-                         <h6>3 Departments</h6>
+                         <p class="mb-0">Vendors</p>
+                         <h6>{{$vendor}} vendors</h6>
                       </div>
                       <div class="col-sm-6">
                          <div class="iq-progress-bar">
@@ -152,13 +152,13 @@
             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                <div class="iq-card-body">
                   <div class="d-flex align-items-center justify-content-between">
-                     <h6>Customers</h6>
+                     <h6>Staff</h6>
                      <span class="iq-icon"><i class="ri-information-fill"></i></span>
                   </div>
                   <div class="iq-customer-box d-flex align-items-center justify-content-between mt-3">
                      <div class="d-flex align-items-center">
                         <div class="rounded-circle iq-card-icon iq-bg-primary mr-2"> <i class="ri-user-fill"></i></div>
-                        <h2>3200</h2>
+                        <h2>{{ $staff }}</h2>
                      </div>
                      <div class="iq-map text-primary font-size-32"><i class="ri-bar-chart-grouped-line"></i></div>
                   </div>
@@ -169,7 +169,7 @@
             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                <div class="iq-card-body">
                   <div class="d-flex align-items-center justify-content-between">
-                     <h6>Total Policies</h6>
+                     <h6>Pool Cars</h6>
                      <span class="iq-icon"><i class="ri-information-fill"></i></span>
                   </div>
                   <div class="iq-customer-box d-flex align-items-center justify-content-between mt-3">
@@ -185,7 +185,7 @@
             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                <div class="iq-card-body">
                   <div class="d-flex align-items-center justify-content-between">
-                     <h6>Pending Claims</h6>
+                     <h6>Total Requests</h6>
                      <span class="iq-icon"><i class="ri-information-fill"></i></span>
                   </div>
                   <div class="iq-customer-box d-flex align-items-center justify-content-between mt-3">
@@ -201,7 +201,7 @@
             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                <div class="iq-card-body">
                   <div class="d-flex align-items-center justify-content-between">
-                     <h6>Settled Claims</h6>
+                     <h6>Status Cars</h6>
                      <span class="iq-icon"><i class="ri-information-fill"></i></span>
                   </div>
                   <div class="iq-customer-box d-flex align-items-center justify-content-between mt-3">
@@ -219,7 +219,7 @@
             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                <div class="iq-card-header d-flex justify-content-between">
                   <div class="iq-header-title">
-                     <h4 class="card-title">Open Invoices</h4>
+                     <h4 class="card-title">Awaiting Approval</h4>
                   </div>
                   <div class="iq-card-header-toolbar d-flex align-items-center">
                      <div class="dropdown">
@@ -227,11 +227,7 @@
                         <i class="ri-more-fill"></i>
                         </span>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton5">
-                           <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
-                           <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                           <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
-                           <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
-                           <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
+                           <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View All</a>
                         </div>
                      </div>
                   </div>
@@ -239,6 +235,7 @@
                <div class="iq-card-body">
                   <div class="table-responsive">
                     <table id="user-list-table" class="table table-striped table-bordered mt-4" role="grid" aria-describedby="user-list-page-info">
+                        @if ($requests->count() > 0)
                         <thead>
                             <tr>
                                 <th width="5%">#</th>
@@ -248,20 +245,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                         @foreach ($requests as $key=> $request)
-                         <tr>
-                             <td class="text-center">{{ $key + 1}}</td>
-                             <td>{{$request ->reqNo}}</td>
-                             <td>{{$request ->created_at->diffForHumans()}}</td>
-                             <td>
-                                 <div class="flex align-items-center list-user-action">
-                                    <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="View Request Items" data-original-title="Edit" href="{{route('procurement.viewrequest', ['reqNo'=>$request->reqNo])}}"><i class="fa fa-file"></i></a>
-                                 </div>
-                              </td>
-                          </tr>
-                         @endforeach
-
+                            @foreach ($requests as $key => $request)
+                            <tr>
+                                <td class="text-center">{{ $key + 1}}</td>
+                                <td>{{$request->reqNo}}</td>
+                                <td>{{$request->created_at->diffForHumans()}}</td>
+                                <td>
+                                    <div class="flex align-items-center list-user-action">
+                                        <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="View Request Items"
+                                            data-original-title="Edit" href="{{route('procurement.viewrequest', ['reqNo'=>$request->reqNo])}}"><i
+                                                class="fa fa-file"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
                         </tbody>
+                         @else
+                         <div class="d-flex justify-content-center align-items-center">
+                             <img width="400px" src="{{ asset('asset/no-record.png') }}">
+                         </div>
+                         @endif
                       </table>
                   </div>
                </div>
@@ -271,7 +274,7 @@
             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                <div class="iq-card-header d-flex justify-content-between">
                   <div class="iq-header-title">
-                     <h4 class="card-title">Recent Requests</h4>
+                     <h4 class="card-title"> Pool Car Awaiting Approval</h4>
                   </div>
                   <div class="iq-card-header-toolbar d-flex align-items-center">
                      <div class="dropdown">
@@ -280,60 +283,41 @@
                         </span>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton1" style="">
                            <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
-                           <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                           <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
-                           <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
-                           <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
                         </div>
                      </div>
                   </div>
                </div>
                <div class="iq-card-body">
                  <ul class="suggestions-lists m-0 p-0">
-                  <li class="d-flex mb-4 align-items-center">
-                     <div class="profile-icon iq-bg-success"><span><i class="ri-check-fill"></i></span></div>
-                     <div class="media-support-info ml-3">
-                        <h6>Camelun ios</h6>
-                        <p class="mb-0"><span class="text-success">17 paid</span> month out of 23</p>
-                     </div>
-                     <div class="media-support-amount ml-3">
-                        <h6><span class="text-secondary">$</span><b> 12,434.00</b></h6>
-                        <p class="mb-0">per month</p>
-                     </div>
-                  </li>
-                  <li class="d-flex mb-4 align-items-center">
-                     <div class="profile-icon iq-bg-warning"><span><i class="ri-check-fill"></i></span></div>
-                     <div class="media-support-info ml-3">
-                        <h6>React</h6>
-                        <p class="mb-0"><span class="text-warning">Late payment 12 week</span> - pay invoice</p>
-                     </div>
-                     <div class="media-support-amount ml-3">
-                        <h6><span class="text-secondary">$</span><b> 12,434.00</b></h6>
-                        <p class="mb-0">per month</p>
-                     </div>
-                  </li>
-                  <li class="d-flex mb-4 align-items-center">
-                     <div class="profile-icon iq-bg-success"><span><i class="ri-check-fill"></i></span></div>
-                     <div class="media-support-info ml-3">
-                        <h6>Camelun ios</h6>
-                        <p class="mb-0"><span class="text-success">17 paid</span> month out of 23</p>
-                     </div>
-                     <div class="media-support-amount ml-3">
-                        <h6><span class="text-secondary">$</span><b> 12,434.00</b></h6>
-                        <p class="mb-0">per month</p>
-                     </div>
-                  </li>
-                  <li class="d-flex mb-4 align-items-center">
-                     <div class="profile-icon iq-bg-danger"><span><i class="ri-check-fill"></i></span></div>
-                     <div class="media-support-info ml-3">
-                        <h6>Camelun ios</h6>
-                        <p class="mb-0"><span class="text-danger">17 paid</span> month out of 23</p>
-                     </div>
-                     <div class="media-support-amount ml-3">
-                        <h6><span class="text-secondary">$</span><b> 12,434.00</b></h6>
-                        <p class="mb-0">per month</p>
-                     </div>
-                  </li>
+                    @foreach ($poolcars as $car)
+                        <li class="d-flex mb-4 align-items-center">
+                            <div class="profile-icon iq-bg-danger">
+                                <span>
+                                   <a href="{{ route('procurement.awaiting-view-carrequest',['reqNo'=>$car->reqNo]) }}">
+                                    <i class="ri-car-fill text-pink"></i>
+                                   </a>
+                                </span>
+                            </div>
+                            <div class="media-support-info ml-3">
+                                <h6><a href="{{ route('procurement.awaiting-view-carrequest',['reqNo'=>$car->reqNo]) }}"> {{$car->reqNo}} </a></h6>
+                                <p class="mb-0"><span class="text-pink">FROM</span>
+                                    {{$car->from}} <span class="text-primary">==></span> {{$car->destination}}
+                                </p>
+                            </div>
+                            <div class="media-support-amount ml-3">
+                                <h6><span class="text-secondary"><i class="ri-calendar-fill"></i></span>
+                                    <b> 
+                                    <a href="{{ route('procurement.awaiting-view-carrequest',['reqNo'=>$car->reqNo]) }}">
+                                        {{$car->req_date}}
+                                    </a>
+                                    </b>
+                                </h6>
+                                <p class="mb-0">{{$car->req_time}}</p>
+                            </div>
+                        </li>
+                    @endforeach
+
+
                </ul>
                </div>
             </div>
@@ -464,7 +448,7 @@
             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                <div class="iq-card-header d-flex justify-content-between">
                   <div class="iq-header-title">
-                     <h4 class="card-title">Settled Claims</h4>
+                     <h4 class="card-title">Settled Comissions</h4>
                   </div>
                   <div class="iq-card-header-toolbar d-flex align-items-center">
                      <div class="dropdown">

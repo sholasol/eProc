@@ -17,16 +17,6 @@
                                 <i class="las la-cart-arrow-down"></i><span>Request Detail</span>
                             </a>
                          </li>
-                         {{-- <li id="personal">
-                            <a href="javascript:void();">
-                                <i class="las la-file"></i><span>Document</span>
-                            </a>
-                         </li> --}}
-                         <li id="confirm">
-                            <a href="javascript:void();">
-                               <i class="ri-check-fill"></i><span>Submit</span>
-                            </a>
-                         </li>
                      </ul>
                      <!-- fieldsets -->
                      <fieldset>
